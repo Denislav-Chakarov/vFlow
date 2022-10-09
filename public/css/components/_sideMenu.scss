@@ -1,0 +1,45 @@
+.sideMenu{
+    position:absolute;
+    right:0;
+    top:0;
+    width:41%;
+    height:100%;
+    background:#0D131D;
+    z-index:99;
+    transform:translateX(120%);
+    transition:all 0.3s linear;
+}
+.sideMenu-active{
+    transform:translateX(0);
+}
+.userImageProfile{
+    border-radius:30%;
+    width:60px;
+}
+.left-side,.right-side{
+    padding:2.5rem 2rem;
+}
+.sideProfileList{
+    text-decoration:none;
+    list-style:none;    
+}
+.horizontalLine{
+    background:black;
+    position:absolute;
+    height:550px;
+    width:1.3px;
+    top:4.5rem;
+}
+#closeSideMenu{
+    z-index:10;
+    font-size:1.35em;
+    color:gray;
+    position:absolute;
+    right:1rem;
+    top:1rem;
+    transition:all 0.3s;
+    cursor:pointer;
+    &:hover{
+        transform:scale(1.1);
+    }
+}
