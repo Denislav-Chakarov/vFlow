@@ -23,7 +23,7 @@
                 <span class='beforeLine2'>&ensp;"find" => <span class='destinationMenu'>"Topics"</span>,</span>
 
             </a>
-            <a class='menuChoice' href="{{route('home')}}">
+            <a class='menuChoice' href="{{route('discussMain')}}">
                 <span class='beforeLine'>&ensp;&ensp;//engage the
                     community</span>
                 <br>
@@ -84,8 +84,6 @@
         <div class='row'>
             @include('layouts.home.categories',['categories' => $categories])
         </div>
-
-
 
     </div>
 

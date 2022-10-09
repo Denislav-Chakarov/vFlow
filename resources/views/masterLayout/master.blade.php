@@ -155,9 +155,6 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
     @endif
     <footer>
         <div class='microphone-footer'>
