@@ -93,8 +93,40 @@ nav {
 .nav-links li a {
   font-size: 1.3em;
   text-decoration: none;
-  color: white;
+  color: #929292;
   font-weight: bold;
+  position: relative;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+
+.nav-links li a:hover {
+  color: white;
+}
+
+.nav-links li a:hover::before {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  background: #328af1;
+  width: 100%;
+  height: 5px;
+  border-radius: 26px;
+}
+
+.nav-links-active {
+  color: white !important;
+  position: relative;
+}
+
+.nav-links-active::before {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  background: #328af1;
+  width: 100%;
+  height: 5px;
+  border-radius: 26px;
 }
 
 .burger {
@@ -909,5 +941,277 @@ footer {
 
 .replied_ago span {
   color: white;
+}
+
+.new_Discuss_modal {
+  z-index: 11;
+  position: fixed;
+  background: #162e4f;
+  max-width: 1000px;
+  height: 500px;
+  margin: 5% auto;
+  /* Will not center vertically and won't work in IE6/7. */
+  left: 0;
+  right: 0;
+  border-radius: 26px;
+  -webkit-transform: translateY(160%);
+          transform: translateY(160%);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.new_Discuss_modal-active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.new_dicuss_top {
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+}
+
+.new_dicuss_top input {
+  background: #162e4f;
+  border: none;
+  color: white;
+  outline: none;
+  border-radius: 26px;
+  padding: 0.8rem;
+  width: 80%;
+}
+
+.new_dicuss_top input::-webkit-input-placeholder {
+  color: white;
+}
+
+.new_dicuss_top input:-ms-input-placeholder {
+  color: white;
+}
+
+.new_dicuss_top input::-ms-input-placeholder {
+  color: white;
+}
+
+.new_dicuss_top input::placeholder {
+  color: white;
+}
+
+.new_dicuss_top img {
+  border-radius: 12px;
+}
+
+.new_dicuss_top select {
+  padding: 0.3rem 0.9rem;
+  border-radius: 12px;
+  background: #162e4f;
+  color: #328af1;
+  border: none;
+  margin-left: 0.5rem;
+}
+
+.new_disucss_message textarea {
+  background-color: #162e4f;
+  color: white;
+  padding: 2rem;
+  outline: none;
+  border: none;
+  width: 100%;
+  resize: none;
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  .new_disucss_message input[type="checkbox"],
+  .new_disucss_message input[type="radio"] {
+    --active: #275efe;
+    --active-inner: #fff;
+    --focus: 2px rgba(39, 94, 254, 0.3);
+    --border: #bbc1e1;
+    --border-hover: #275efe;
+    --background: #fff;
+    --disabled: #f6f8ff;
+    --disabled-inner: #e1e6f9;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    background: var(--b, var(--background));
+    -webkit-transition: background 0.3s, border-color 0.3s, -webkit-box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, -webkit-box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  }
+  .new_disucss_message input[type="checkbox"]:after,
+  .new_disucss_message input[type="radio"]:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0.2rem;
+    position: absolute;
+    -webkit-transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+  }
+  .new_disucss_message input[type="checkbox"]:checked,
+  .new_disucss_message input[type="radio"]:checked {
+    --b: var(--active);
+    --bc: var(--active);
+    --d-o: 0.3s;
+    --d-t: 0.6s;
+    --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+  }
+  .new_disucss_message input[type="checkbox"]:disabled,
+  .new_disucss_message input[type="radio"]:disabled {
+    --b: var(--disabled);
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+  .new_disucss_message input[type="checkbox"]:disabled:checked,
+  .new_disucss_message input[type="radio"]:disabled:checked {
+    --b: var(--disabled-inner);
+    --bc: var(--border);
+  }
+  .new_disucss_message input[type="checkbox"]:disabled + label,
+  .new_disucss_message input[type="radio"]:disabled + label {
+    cursor: not-allowed;
+  }
+  .new_disucss_message input[type="checkbox"]:hover:not(:checked):not(:disabled),
+  .new_disucss_message input[type="radio"]:hover:not(:checked):not(:disabled) {
+    --bc: var(--border-hover);
+  }
+  .new_disucss_message input[type="checkbox"]:focus,
+  .new_disucss_message input[type="radio"]:focus {
+    -webkit-box-shadow: 0 0 0 var(--focus);
+            box-shadow: 0 0 0 var(--focus);
+  }
+  .new_disucss_message input[type="checkbox"]:not(.switch),
+  .new_disucss_message input[type="radio"]:not(.switch) {
+    width: 21px;
+  }
+  .new_disucss_message input[type="checkbox"]:not(.switch):after,
+  .new_disucss_message input[type="radio"]:not(.switch):after {
+    opacity: var(--o, 0);
+  }
+  .new_disucss_message input[type="checkbox"]:not(.switch):checked,
+  .new_disucss_message input[type="radio"]:not(.switch):checked {
+    --o: 1;
+  }
+  .new_disucss_message input[type="checkbox"] + label,
+  .new_disucss_message input[type="radio"] + label {
+    color: gray;
+    font-size: 14px;
+    line-height: 21px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  .new_disucss_message input[type="checkbox"]:not(.switch) {
+    border-radius: 7px;
+  }
+  .new_disucss_message input[type="checkbox"]:not(.switch):after {
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--active-inner);
+    border-top: 0;
+    border-left: 0;
+    left: 7px;
+    top: 4px;
+    -webkit-transform: rotate(var(--r, 20deg));
+            transform: rotate(var(--r, 20deg));
+  }
+  .new_disucss_message input[type="checkbox"]:not(.switch):checked {
+    --r: 43deg;
+  }
+  .new_disucss_message input[type="checkbox"].switch {
+    background-color: rgba(50, 138, 241, 0.15);
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    width: 38px;
+    border-radius: 11px;
+  }
+  .new_disucss_message input[type="checkbox"].switch:after {
+    left: 2px;
+    top: 3px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--ab, var(--border));
+    -webkit-transform: translateX(var(--x, 0));
+            transform: translateX(var(--x, 0));
+  }
+  .new_disucss_message input[type="checkbox"].switch:checked {
+    --ab: var(--active-inner);
+    --x: 17px;
+  }
+  .new_disucss_message input[type="checkbox"].switch:disabled:not(:checked):after {
+    opacity: 0.6;
+  }
+  .new_disucss_message input[type="radio"] {
+    border-radius: 50%;
+  }
+  .new_disucss_message input[type="radio"]:after {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--active-inner);
+    opacity: 0;
+    -webkit-transform: scale(var(--s, 0.7));
+            transform: scale(var(--s, 0.7));
+  }
+  .new_disucss_message input[type="radio"]:checked {
+    --s: 0.5;
+  }
+}
+
+.new_disucss_message ul {
+  margin: 12px;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 320px;
+  margin-left: 2.5rem;
+}
+
+.new_disucss_message ul li {
+  margin: 16px 0;
+  position: relative;
+}
+
+.new_dicuss_post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-transform: translateX(-2.5%);
+          transform: translateX(-2.5%);
+  height: 35px;
+}
+
+.new_dicuss_post span {
+  background-color: rgba(50, 138, 241, 0.15);
+  color: white;
+  border-radius: 26px;
+  padding: 0.8rem 3.4rem;
+  margin-right: 2rem;
+}
+
+.new_dicuss_post input {
+  color: white;
+  background-color: #328af1;
+  padding: 0.8rem 3.4rem;
+  border: none;
+  padding: 0.8rem 3.4rem;
+  border-radius: 26px;
 }
 /*# sourceMappingURL=style.css.map */

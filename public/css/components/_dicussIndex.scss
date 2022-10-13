@@ -171,6 +171,7 @@
     top: -1rem;
     color: rgb(194, 194, 194);
 }
+
 .replied_ago {
     position: absolute;
     bottom: 0.5rem;
@@ -178,5 +179,239 @@
     font-size: 0.9em;
     span {
         color: white;
+    }
+}
+
+.new_Discuss_modal {
+    z-index: 11;
+    position: fixed;
+    background: #162e4f;
+    max-width: 1000px;
+    height: 500px;
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+    border-radius: 26px;
+    transform: translateY(160%);
+    transition: all 0.3s ease-in;
+}
+.new_Discuss_modal-active {
+    transform: translateY(0);
+}
+.new_dicuss_top {
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    input {
+        background: #162e4f;
+        border: none;
+        color: white;
+        outline: none;
+        border-radius: 26px;
+        padding: 0.8rem;
+        width: 80%;
+        &::placeholder {
+            color: white;
+        }
+    }
+    img {
+        border-radius: 12px;
+    }
+
+    select {
+        padding: 0.3rem 0.9rem;
+        border-radius: 12px;
+        background: #162e4f;
+        color: #328af1;
+        border: none;
+        margin-left: 0.5rem;
+    }
+}
+
+.new_disucss_message {
+    textarea {
+        background-color: #162e4f;
+        color: white;
+        padding: 2rem;
+        outline: none;
+        border: none;
+        width: 100%;
+        resize: none;
+    }
+
+    @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+        input[type="checkbox"],
+        input[type="radio"] {
+            --active: #275efe;
+            --active-inner: #fff;
+            --focus: 2px rgba(39, 94, 254, 0.3);
+            --border: #bbc1e1;
+            --border-hover: #275efe;
+            --background: #fff;
+            --disabled: #f6f8ff;
+            --disabled-inner: #e1e6f9;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            height: 21px;
+            outline: none;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            margin: 0;
+            cursor: pointer;
+            background: var(--b, var(--background));
+            transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+            &:after {
+                content: "";
+                display: block;
+                left: 0;
+                top: 0.2rem;
+                position: absolute;
+                transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
+                    opacity var(--d-o, 0.2s);
+            }
+            &:checked {
+                --b: var(--active);
+                --bc: var(--active);
+                --d-o: 0.3s;
+                --d-t: 0.6s;
+                --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+            }
+            &:disabled {
+                --b: var(--disabled);
+                cursor: not-allowed;
+                opacity: 0.9;
+                &:checked {
+                    --b: var(--disabled-inner);
+                    --bc: var(--border);
+                }
+                & + label {
+                    cursor: not-allowed;
+                }
+            }
+            &:hover {
+                &:not(:checked) {
+                    &:not(:disabled) {
+                        --bc: var(--border-hover);
+                    }
+                }
+            }
+            &:focus {
+                box-shadow: 0 0 0 var(--focus);
+            }
+            &:not(.switch) {
+                width: 21px;
+                &:after {
+                    opacity: var(--o, 0);
+                }
+                &:checked {
+                    --o: 1;
+                }
+            }
+            & + label {
+                color: gray;
+                font-size: 14px;
+                line-height: 21px;
+                display: inline-block;
+                vertical-align: top;
+                cursor: pointer;
+                margin-left: 4px;
+            }
+        }
+        input[type="checkbox"] {
+            &:not(.switch) {
+                border-radius: 7px;
+                &:after {
+                    width: 5px;
+                    height: 9px;
+                    border: 2px solid var(--active-inner);
+                    border-top: 0;
+                    border-left: 0;
+                    left: 7px;
+                    top: 4px;
+                    transform: rotate(var(--r, 20deg));
+                }
+                &:checked {
+                    --r: 43deg;
+                }
+            }
+            &.switch {
+                background-color: rgba(50, 138, 241, 0.15);
+                transform: scale(1.5);
+                width: 38px;
+                border-radius: 11px;
+                &:after {
+                    left: 2px;
+                    top: 3px;
+                    border-radius: 50%;
+                    width: 15px;
+                    height: 15px;
+                    background: var(--ab, var(--border));
+                    transform: translateX(var(--x, 0));
+                }
+                &:checked {
+                    --ab: var(--active-inner);
+                    --x: 17px;
+                }
+                &:disabled {
+                    &:not(:checked) {
+                        &:after {
+                            opacity: 0.6;
+                        }
+                    }
+                }
+            }
+        }
+        input[type="radio"] {
+            border-radius: 50%;
+            &:after {
+                width: 19px;
+                height: 19px;
+                border-radius: 50%;
+                background: var(--active-inner);
+                opacity: 0;
+                transform: scale(var(--s, 0.7));
+            }
+            &:checked {
+                --s: 0.5;
+            }
+        }
+    }
+
+    // Demo
+
+    ul {
+        margin: 12px;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        max-width: 320px;
+        margin-left: 2.5rem;
+        li {
+            margin: 16px 0;
+            position: relative;
+        }
+    }
+}
+
+.new_dicuss_post {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    transform: translateX(-2.5%);
+    height: 35px;
+    span {
+        background-color: rgba(50, 138, 241, 0.15);
+        color: white;
+        border-radius: 26px;
+        padding: 0.8rem 3.4rem;
+        margin-right: 2rem;
+    }
+    input {
+        color: white;
+        background-color: #328af1;
+        padding: 0.8rem 3.4rem;
+        border: none;
+        padding: 0.8rem 3.4rem;
+        border-radius: 26px;
     }
 }

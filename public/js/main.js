@@ -9,6 +9,8 @@ toggles.showHidePW();
 toggles.signUp();
 toggles.forgotPW();
 toggles.toggleSideMenu();
+toggles.navBarCur_toggle();
+toggles.newDicuss_toggle();
 
 //Ajax section
 Ajax.RegAjax();

@@ -44,9 +44,37 @@ nav {
             font-size: 1.3em;
 
             text-decoration: none;
-            color: white;
+            color: rgb(146, 146, 146);
             font-weight: bold;
+            position: relative;
+            transition: all 0.15s ease-in;
+            &:hover {
+                color: white;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -1rem;
+                    background: #328af1;
+                    width: 100%;
+                    height: 5px;
+                    border-radius: 26px;
+                }
+            }
         }
+    }
+}
+
+.nav-links-active {
+    color: white !important;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        background: #328af1;
+        width: 100%;
+        height: 5px;
+        border-radius: 26px;
     }
 }
 

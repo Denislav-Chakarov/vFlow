@@ -114,7 +114,7 @@ export const signUp = () => {
         });
     });
 
-    if(getStarted !== null){
+    if (getStarted !== null) {
         getStarted.addEventListener("click", () => {
             signUpModal.classList.toggle("loginModal-active");
             $(".darkness").fadeIn();
@@ -147,16 +147,66 @@ export const forgotPW = () => {
     });
 };
 
-export const toggleSideMenu  = () => {
-    $('.userImage').on('click',function(){
-        $('.sideMenu').toggleClass('sideMenu-active');
-        $('body').toggleClass("stopScrolling");
-        $('.darkness').fadeIn();
+export const toggleSideMenu = () => {
+    $(".userImage").on("click", function () {
+        $(".sideMenu").toggleClass("sideMenu-active");
+        $("body").toggleClass("stopScrolling");
+        $(".darkness").fadeIn();
     });
-    $('#closeSideMenu').on('click',function(){
-        $('.sideMenu').toggleClass('sideMenu-active');
-        $('body').toggleClass("stopScrolling");
-        $('.darkness').fadeOut();
-    })
-    
-}
+    $("#closeSideMenu").on("click", function () {
+        $(".sideMenu").toggleClass("sideMenu-active");
+        $("body").toggleClass("stopScrolling");
+        $(".darkness").fadeOut();
+    });
+};
+
+export const navBarCur_toggle = () => {
+    const links = document.querySelectorAll(".nav-links li a");
+    const cur_path = window.location.pathname;
+    for (let i = 0; i < links.length; i++) {
+        let cur_name = links[i].textContent;
+        if (cur_name == "DISCUSSIONS") cur_name = "discuss";
+        if (cur_path == "/" + cur_name) {
+            links[i].classList.add("nav-links-active");
+        }
+    }
+};
+
+export const newDicuss_toggle = () => {
+    const modalBox = document.getElementsByClassName("new_Discuss_modal")[0];
+
+    $("#newDiscussBtn").on("click", function () {
+        modalBox.classList.toggle("new_Discuss_modal-active");
+        document.body.classList.toggle("stopScrolling");
+        $(".darkness").fadeIn();
+    });
+
+    $("#close_discussPost").on("click", function () {
+        modalBox.classList.toggle("new_Discuss_modal-active");
+        document.body.classList.toggle("stopScrolling");
+        $(".darkness").fadeOut();
+    });
+
+    $("body").click(function (event) {
+        if (
+            !$(event.target).closest(".new_Discuss_modal").length &&
+            !$(event.target).is(".new_Discuss_modal") &&
+            !$(event.target).closest("#newDiscussBtn").length &&
+            !$(event.target).is("#newDiscussBtn")
+        ) {
+            if ($(".darkness").is(":visible")) {
+                modalBox.classList.toggle("new_Discuss_modal-active");
+                document.body.classList.toggle("stopScrolling");
+                $(".darkness").fadeOut();
+            }
+        }
+    });
+
+    $("body").keyup(function (event) {
+        if (event.keyCode === 27 && $(".darkness").is(":visible")) {
+            modalBox.classList.toggle("new_Discuss_modal-active");
+            document.body.classList.toggle("stopScrolling");
+            $(".darkness").fadeOut();
+        }
+    });
+};

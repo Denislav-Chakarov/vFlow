@@ -4,9 +4,39 @@
 
 <div class='container-fluid' style='background:linear-gradient(50deg,#1E2D40,#151F32);'>
     <div class='row'>
+        <div class='new_Discuss_modal'>
+            <form action="none">
+                <div class='new_dicuss_top'>
+                    <input type="text" id='new_dicuss_title' placeholder='Add a Title'>
+                    <select name="new_dicuss_select" id="new_dicuss_select">
+                        <option value="laravel_discuss">Laravel</option>
+                            <option value="php_discuss">Php</option>
+                            <option value="sql_dicuss">Sql</option>
+                            <option value="java_dicuss">Java</option>
+                    </select>
+                    &ensp;<img width='40' height='40'src="{{URL('/AvatarImgs/defaultLaravelProfile.jpg')}}" alt="">
+                </div>
+                <div class='new_disucss_message'>
+                    <textarea name="new_dicuss_textarea" id="" cols="30" rows="10" placeholder="Whats' on your mind?"></textarea>
+                    <ul>
+                        <li>
+                          <input id="s1d" type="checkbox" class="switch">
+                          <label for="s1d">&ensp;&ensp;Markdown Preview OFF</label>
+                        </li>
+                      </ul>
+                </div>
+                <div class='new_dicuss_post'>
+                    <span style='cursor:pointer;' id='close_discussPost'>Cancel</span>
+                    <input type="button" value='POST'>
+                    <br>
+                    <br>
+                </div>
+            </form>
+
+        </div>
         <div class='col-3'>
             <div class='left-side-discuss'>
-                <a href="#">New Discussion</a>
+                <a href="#" id='newDiscussBtn'>New Discussion</a>
                 <br>
                 <br>
                 <br>
